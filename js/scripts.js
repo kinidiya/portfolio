@@ -211,6 +211,12 @@ document.addEventListener('DOMContentLoaded', () => {
             { name: 'Data Science', percentage: 12 },
             { name: 'Web Development', percentage: 8 },
             { name: 'Operating Systems', percentage: 7 }
+        ],
+        interests: [
+            { name: 'Singing', icon: '🎤', description: 'Expressing creativity through music' },
+            { name: 'Dancing', icon: '💃', description: 'Moving to the rhythm of life' },
+            { name: 'Poker', icon: '🃏', description: 'Strategic thinking and calculated risks' },
+            { name: 'STEM Advocacy in Government', icon: '🏛️', description: 'Promoting science and technology policy' }
         ]
     };
 
@@ -236,6 +242,7 @@ document.addEventListener('DOMContentLoaded', () => {
     populateTimeBreakdown();
     populateAchievements();
     populateGenres();
+    populateInterests();
     populateFinalStats();
     createNavDots();
 
@@ -378,7 +385,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="item-title">${project.name}</div>
                     <div class="item-subtitle">${project.description} • ${project.year}</div>
                 </div>
-                <div class="item-stat">${project.impact}%</div>
             </div>
         `).join('');
     }
@@ -555,6 +561,18 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="genre-card">
                 <div class="genre-name">${genre.name}</div>
                 <div class="genre-percentage">${genre.percentage}%</div>
+            </div>
+        `).join('');
+    }
+
+    function populateInterests() {
+        const grid = document.getElementById('interestsGrid');
+        
+        grid.innerHTML = portfolioData.interests.map(interest => `
+            <div class="interest-card">
+                <div class="interest-icon">${interest.icon}</div>
+                <div class="interest-name">${interest.name}</div>
+                <div class="interest-description">${interest.description}</div>
             </div>
         `).join('');
     }
